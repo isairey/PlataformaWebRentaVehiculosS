@@ -289,16 +289,7 @@ http://127.0.0.1:8000
 
 ---
 
-# 👥 Usuarios de prueba
 
-| Nombre | Email | Contraseña | Rol |
-|---|---|---|---|
-| Hubert Pichet | hubert.pichet@gmail.com | Azerty123 | Empresa |
-| Jerome Aurore | jerome.aurore@hotmail.com | Azerty123 | Empresa |
-| Easy Rent | easyrent@easyrent.com | Azerty123 | Loueur |
-| Sixt | sixt@sixt.com | Azerty123 | Loueur |
-
----
 
 # 📊 Funcionalidades principales
 
