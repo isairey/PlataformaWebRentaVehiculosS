@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ car.type }} - RentCar {% endblock %}
+
+{% block content %}
+
+    <div class="container">
+    
+        <div class="row">
+            <div class="{{ is_granted('IS_AUTHENTICATED_FULLY') ? 'col-8' : 'col-12' }}">
+                <div class="card" style="width: 700px; margin: 1em auto">
+                    <img class="card-img-top" src="{{asset('uploads/cars/')}}{{ car.image }}" alt="Card image cap" style="object-fit: contain">
+                    <div class="card-body">
+                        <h1 class="card-title">{{ car.type }}</h1>
+                        <h5 class="title">{{car.amount}} €/J</h5>
+                        <ul class="card-text">
+                            <li>{{ car.datasheet['category'] }}</li>
+                            <li>{{ car.datasheet['fuel'] }}</li>
+                            <li>{{ car.datasheet['engine'] }}</li>
+                            <li>{{ car.datasheet['shift'] }}</li>
+                            <li>{{ car.datasheet['nb_portes'] }}</li>
+                        </ul>
+                        <p class="card-text">Quantité en stock : {{ car.quantity }}</p>
+                    </div>
+                </div>
+            </div>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <div class="col-4">
+                    {% block formRent %}{% endblock %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class = "container">
+            <p></p>
+            <h1>Avis</h1>
+
+            {% if car.comments.count == 0 %}
+                <p>Aucun avis</p>
+            {% else %}
+                {% for comment in car.comments %}
+                    <blockquote class="blockquote">
+                        <p class="mb-0">{{comment.content}}</p>
+                        <footer class="blockquote-footer">{{comment.author}}, le <cite title="Source Title">{{ comment.createdAt | date('d/m/Y') }}</cite></footer>
+                    </blockquote>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+
+    </div>
+
+{% endblock %}
+

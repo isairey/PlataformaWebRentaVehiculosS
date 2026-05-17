@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Nos voitures {% endblock %}
+
+{% block content %}
+    
+    
+    <div class="container-fluid">
+    
+        <p></p>
+        <div class="d-flex">            
+            {% for message in app.flashes('notif') %}
+                <div class="alert alert-dismissible alert-success"  style="margin: 0 auto">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Bravo !</strong> Votre commande à correctement été ajouté à <a href="{{ path('cart_index') }} " class="alert-link">votre panier !</a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="cars d-flex mx-auto justify-content-between flex-wrap" style="width: 80%">
+            {% for car in cars %}
+                <div class="card" style="width: 350px; margin: 1em auto">
+                    <img class="card-img-top" src="{{asset('uploads/cars/')}}{{ car.image }}" alt="{{ car.type }}" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <a href="{{ path('car_show', {id : car.id}) }}" class="card-title">{{ car.type }}</a>
+                        <h5 class="title">{{car.amount}} €/J</h5>
+                        <ul class="card-text">
+                            <li>{{ car.datasheet['category'] }}</li>
+                            <li>{{ car.datasheet['fuel'] }}</li>
+                            <li>{{ car.datasheet['engine'] }}</li>
+                            <li>{{ car.datasheet['shift'] }}</li>
+                            <li>{{ car.datasheet['nb_portes'] }}</li>
+                        </ul>
+                        <p class="card-text">Quantité en stock : {{ car.quantity }}</p>
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <a href="{{ path('car_rent', {id : car.id}) }}" class="btn btn-primary">Louer</a>
+                        {% else %}
+                            <a href="{{ path('car_show', {id : car.id}) }}" class="btn btn-primary">En savoir plus</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
