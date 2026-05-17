@@ -193,7 +193,7 @@ Este módulo funciona como administrador principal del sistema.
 # 📂 Estructura del proyecto
 
 ```bash
-Car-Rental-Management-System/
+PlataformaWebRentaVehiculosS/
 │
 ├── src/                      # Código fuente Symfony
 ├── templates/                # Plantillas Twig
@@ -228,7 +228,7 @@ Car-Rental-Management-System/
 ## 1️⃣ Clonar repositorio
 
 ```bash
-git clone --single-branch -b master https://github.com/Danny-7/Car-Rental-Management-System.git
+git clone --single-branch -b master https://github.com/isairey/PlataformaWebRentaVehiculosS.git
 ```
 
 ---
@@ -419,13 +419,13 @@ git push origin feature/nueva-funcionalidad
 
 ---
 
-# 👨‍💻 Créditos
+# 👨‍💻 Desarrollador
 
 <div align="center">
 
-## Daniel Aguiar • Hugo Mikolajek • David Benibri
+## Isai Reyes — Java Developer
 
-Desarrolladores apasionados por sistemas administrativos, arquitectura MVC y plataformas de renta de vehículos 🚀
+Desarrollador apasionado por programación orientada a objetos, sistemas administrativos y aplicaciones Java 🚀
 
 </div>
 
